@@ -1,9 +1,17 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders hero section and navigation without crashing", () => {
+	render(
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	);
+
+	const heroSection = screen.getByText(/Discover/i);
+	const navigation = screen.getByTestId("navigation-wrapper");
+
+	expect(heroSection).toBeInTheDocument();
+	expect(navigation).toBeInTheDocument();
 });
