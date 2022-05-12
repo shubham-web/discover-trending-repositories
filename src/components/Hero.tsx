@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
+// Renders the Hero Section common for all navigation
 function Hero() {
 	return (
 		<HeroWrapper>
 			<Heading>Discover Trending Repositories</Heading>
-			<SubHeading>Explore Repositories Having Most Starts in Last 7 Days.</SubHeading>
+			<SubHeading>Explore Repositories Having Most Stars in Last 7 Days.</SubHeading>
 		</HeroWrapper>
 	);
 }
@@ -43,4 +44,5 @@ const SubHeading = styled.h2`
 		font-size: 1rem;
 	}
 `;
+
 export default Hero;

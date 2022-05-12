@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { AppContext } from "../App";
-import { ACTION_TYPES } from "../appReducer";
+import { BrowserStorage } from "../LocalStorageHelper";
+import RepoList, { Repository } from "./RepoList";
+
+// Renders the Repository list marked as favorite from localStorage
 
 function FavoriteRepo() {
-	const { state, dispatch } = React.useContext(AppContext);
-	return <ListWrapper>favorite repo</ListWrapper>;
+	const data = BrowserStorage.getFavorites();
+	return (
+		<section>
+			<RepoList isFavoritePage={true} data={data as Repository[]} />
+		</section>
+	);
 }
-
-const ListWrapper = styled.section`
-	border: 1px solid green;
-`;
 
 export default FavoriteRepo;
