@@ -9,7 +9,7 @@ test("renders hero section and navigation without crashing", () => {
 		</BrowserRouter>
 	);
 
-	const heroSection = screen.getByText(/Discover/i);
+	const heroSection = screen.getByTestId("hero-wrapper");
 	const navigation = screen.getByTestId("navigation-wrapper");
 
 	expect(heroSection).toBeInTheDocument();

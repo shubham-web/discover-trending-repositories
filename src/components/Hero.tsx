@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Renders the Hero Section common for all navigation
 function Hero() {
 	return (
-		<HeroWrapper>
+		<HeroWrapper data-testid="hero-wrapper">
 			<Heading>Discover Trending Repositories</Heading>
 			<SubHeading>Explore Repositories Having Most Stars in Last 7 Days.</SubHeading>
 		</HeroWrapper>
