@@ -5,18 +5,10 @@ import { AppState } from "./AppState";
 import { Container } from "./components/common/styled";
 import Hero from "./components/Hero";
 import Navigation from "./components/Navigation";
-import { useLocation, useRoutes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import FavoriteRepo from "./components/FavoriteRepo";
 import TrendingRepo from "./components/TrendingRepo";
 import { AppContext } from "./AppContext";
-
-function AppRoutes() {
-	const routes = useRoutes([
-		{ path: "/", element: <TrendingRepo /> },
-		{ path: "/favorites", element: <FavoriteRepo /> },
-	]);
-	return routes;
-}
 
 function App() {
 	const [state, dispatch] = useReducer(reducer, AppState);
@@ -33,7 +25,10 @@ function App() {
 
 				<Container>
 					<Navigation />
-					<AppRoutes />
+					<Routes>
+						<Route path="/" element={<TrendingRepo />} />
+						<Route path="/favorites" element={<FavoriteRepo />} />
+					</Routes>
 				</Container>
 			</AppContext.Provider>
 		</div>
