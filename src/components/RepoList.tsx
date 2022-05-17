@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ACTION_TYPES } from "../appReducer";
 import FavFill from "./../assets/images/fav-fill.png";
 import FavHollow from "./../assets/images/fav-hollow.png";
@@ -54,6 +54,7 @@ function RepoList(props: ListData) {
 							<MarkAsFavorite
 								title={repository.isFav ? "Remove from Favorites" : "Mark as Favorite"}
 								onClick={() => toggleFavorite(repository)}
+								isFav={repository.isFav}
 							>
 								<img
 									src={repository.isFav ? FavFill : FavHollow}
@@ -104,11 +105,26 @@ const TwoCols = styled.div`
 	align-items: flex-start;
 `;
 
+const StarAnimation = keyframes`
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+`;
 const MarkAsFavorite = styled.button`
 	cursor: pointer;
-	padding: 5px;
-	background-color: transparent;
 	border: none;
+	background-color: transparent;
+	padding: 5px;
+	transition: 0.3s;
+
+	${(props: { isFav: boolean }) =>
+		props.isFav &&
+		css`
+			animation: ${StarAnimation} 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		`}
 `;
 
 const zoomIn = keyframes`
