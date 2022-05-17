@@ -5,11 +5,7 @@ import RepoList, { Repository } from "./RepoList";
 
 function FavoriteRepo() {
 	const data = BrowserStorage.getFavorites();
-	return (
-		<section>
-			<RepoList isFavoritePage={true} data={data as Repository[]} />
-		</section>
-	);
+	return <RepoList isFavoritePage={true} data={data as Repository[]} />;
 }
 
 export default FavoriteRepo;

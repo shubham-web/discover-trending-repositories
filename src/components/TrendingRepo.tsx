@@ -107,7 +107,7 @@ function TrendingRepo() {
 	}, [state.language]);
 
 	return (
-		<section>
+		<>
 			{/* Show Loading while FETCHING */}
 			{[REQ_STATE.INITIAL, REQ_STATE.FETCHING].includes(state.repositories.reqState) ? <Loader /> : null}
 
@@ -124,7 +124,7 @@ function TrendingRepo() {
 			{REQ_STATE.SUCCEEDED === state.repositories.reqState ? (
 				<RepoList data={state.repositories.data as Repository[]} />
 			) : null}
-		</section>
+		</>
 	);
 }
 

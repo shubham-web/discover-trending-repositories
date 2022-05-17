@@ -25,7 +25,7 @@ export const Button = styled.button`
 	transition: 0.3s;
 `;
 
-export const Container = styled.section`
+export const Container = styled.main`
 	max-width: 80vw;
 	margin: 0 auto;
 	@media (max-width: 768px) {
