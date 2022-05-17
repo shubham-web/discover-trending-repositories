@@ -37,7 +37,12 @@ function RepoList(props: ListData) {
 	};
 
 	if (props.isFavoritePage && props.data.length === 0) {
-		return <h1>There Are No Repositories Marked as Favorite</h1>;
+		return <p style={{
+			color: "#262626",
+			padding: "1rem",
+			border: "1px solid gray",
+			borderRadius: "1rem"
+		}}>There are no repositories marked as favorite.</p>;
 	}
 
 	return (
