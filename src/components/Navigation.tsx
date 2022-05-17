@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../App";
 import { ACTION_TYPES } from "../appReducer";
-import { LIST_TYPE } from "../AppState";
+import { LIST_TYPE, SortType, State } from "../AppState";
 
 import { Button, ButtonGroup, Chip, ChipsGroup } from "./common/styled";
 
@@ -18,6 +18,9 @@ function Navigation() {
 
 	const changeLanguage = (lang: lang) => {
 		dispatch({ type: ACTION_TYPES.CHANGE_LANGUAGE, payload: lang.value });
+	};
+	const changeSortMethod = (newMethod: SortType) => {
+		dispatch({ type: ACTION_TYPES.CHANGE_SORT, payload: newMethod });
 	};
 
 	return (
@@ -52,6 +55,28 @@ function Navigation() {
 					</ChipsGroup>
 				</fieldset>
 			)}
+
+			<fieldset>
+				<legend>Sort By</legend>
+				<ChipsGroup>
+					<Chip
+						active={state.sortBy == "ascending"}
+						onClick={() => {
+							changeSortMethod("ascending");
+						}}
+					>
+						Ascending
+					</Chip>
+					<Chip
+						active={state.sortBy == "descending"}
+						onClick={() => {
+							changeSortMethod("descending");
+						}}
+					>
+						Descending
+					</Chip>
+				</ChipsGroup>
+			</fieldset>
 		</NavWrapper>
 	);
 }

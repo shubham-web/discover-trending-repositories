@@ -3,6 +3,7 @@ import { Repository } from "./components/RepoList";
 
 export enum ACTION_TYPES {
 	CHANGE_LANGUAGE = "CHANGE_LANGUAGE",
+	CHANGE_SORT = "CHANGE_SORT",
 	CHANGE_LIST = "CHANGE_LIST",
 	FETCH_LIST = "FETCH_LIST",
 	TOGGLE_FAVORITE = "TOGGLE_FAVORITE",
@@ -33,6 +34,19 @@ export function reducer(state: State, action: Action): State {
 					...action.payload,
 				},
 			};
+		case ACTION_TYPES.CHANGE_SORT: {
+			let data = state.repositories.data.slice();
+			data.reverse();
+
+			return {
+				...state,
+				repositories: {
+					...state.repositories,
+					data: data,
+				},
+				sortBy: action.payload,
+			};
+		}
 		case ACTION_TYPES.TOGGLE_FAVORITE:
 			return {
 				...state,

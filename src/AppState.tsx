@@ -11,6 +11,7 @@ export enum REQ_STATE {
 	FAILED = "FAILED",
 }
 
+export type SortType = "ascending" | "descending";
 export type State = {
 	list: LIST_TYPE;
 	language: string;
@@ -19,11 +20,13 @@ export type State = {
 		language: string;
 		data: string[] | Repository[];
 	};
+	sortBy: SortType;
 };
 
 export const AppState: State = {
 	list: LIST_TYPE.ALL,
 	language: "",
+	sortBy: "ascending",
 	repositories: {
 		reqState: REQ_STATE.INITIAL,
 		language: "",

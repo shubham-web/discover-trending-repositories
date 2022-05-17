@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { AppContext } from "../App";
 import { ACTION_TYPES } from "../appReducer";
