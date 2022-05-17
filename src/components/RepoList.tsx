@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import styled, { keyframes } from "styled-components";
-import { AppContext } from "../App";
 import { ACTION_TYPES } from "../appReducer";
 import FavFill from "./../assets/images/fav-fill.png";
 import FavHollow from "./../assets/images/fav-hollow.png";
 import NewTabIcon from "./../assets/images/export.png";
 import { BrowserStorage } from "../LocalStorageHelper";
+import { AppContext } from "../AppContext";
 
 export type Repository = {
 	id: number;

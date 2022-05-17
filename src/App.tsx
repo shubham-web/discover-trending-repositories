@@ -1,20 +1,14 @@
-import React, { Dispatch, useReducer } from "react";
+import { useReducer } from "react";
 import "./App.css";
-import { Action, ACTION_TYPES, reducer } from "./appReducer";
-import { AppState, State } from "./AppState";
+import { ACTION_TYPES, reducer } from "./appReducer";
+import { AppState } from "./AppState";
 import { Container } from "./components/common/styled";
 import Hero from "./components/Hero";
 import Navigation from "./components/Navigation";
 import { useLocation, useRoutes } from "react-router-dom";
 import FavoriteRepo from "./components/FavoriteRepo";
 import TrendingRepo from "./components/TrendingRepo";
-
-interface ContextProps {
-	state: State;
-	dispatch: Dispatch<Action>;
-}
-
-export const AppContext = React.createContext({} as ContextProps);
+import { AppContext } from "./AppContext";
 
 function AppRoutes() {
 	const routes = useRoutes([
