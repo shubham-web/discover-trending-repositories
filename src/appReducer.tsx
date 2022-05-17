@@ -18,7 +18,7 @@ export function reducer(state: State, action: Action): State {
 		case ACTION_TYPES.CHANGE_LANGUAGE:
 			return {
 				...state,
-				language: action.payload,
+				selectedLanguage: action.payload,
 			};
 		case ACTION_TYPES.CHANGE_LIST:
 			return {

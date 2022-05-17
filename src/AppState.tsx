@@ -13,7 +13,7 @@ export enum REQ_STATE {
 
 export type State = {
 	list: LIST_TYPE;
-	language: string;
+	selectedLanguage: string; // selectedLanguage
 	repositories: {
 		reqState: REQ_STATE;
 		language: string;
@@ -23,7 +23,7 @@ export type State = {
 
 export const AppState: State = {
 	list: LIST_TYPE.ALL,
-	language: "",
+	selectedLanguage: "",
 	repositories: {
 		reqState: REQ_STATE.INITIAL,
 		language: "",

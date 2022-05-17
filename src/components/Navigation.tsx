@@ -49,7 +49,7 @@ function Navigation() {
 											changeLanguage(lang);
 										}
 									}}
-									active={state.language === lang.value}
+									active={state.selectedLanguage === lang.value}
 									key={lang.value}
 								>
 									{lang.label}
