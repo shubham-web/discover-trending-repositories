@@ -66,7 +66,7 @@ function RepoList(props: ListData) {
 
 						<Name>
 							{props.isFavoritePage ? null : <RankBadge>#{index + 1}</RankBadge>}
-							<a target="_blank" rel="noreferrer" href={repository.url}>
+							<a target="_blank" rel="noreferrer" href={repository.url} tabIndex={0}>
 								{limitChar(repository.name, 25)}
 								<img src={NewTabIcon} width={18} alt="open in new tab" />
 							</a>
@@ -104,9 +104,11 @@ const TwoCols = styled.div`
 	align-items: flex-start;
 `;
 
-const MarkAsFavorite = styled.div`
+const MarkAsFavorite = styled.button`
 	cursor: pointer;
 	padding: 5px;
+	background-color: transparent;
+	border: none;
 `;
 
 const zoomIn = keyframes`

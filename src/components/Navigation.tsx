@@ -27,7 +27,9 @@ function Navigation() {
 				{navLinks.map((link) => {
 					return (
 						<Link key={link.value} to={link.value}>
-							<Button active={state.list === link.value}>{link.label}</Button>
+							<Button tabIndex={-1} active={state.list === link.value}>
+								{link.label}
+							</Button>
 						</Link>
 					);
 				})}
@@ -42,6 +44,11 @@ function Navigation() {
 							return (
 								<Chip
 									onClick={() => changeLanguage(lang)}
+									onKeyDown={(e) => {
+										if (e.key === "Enter") {
+											changeLanguage(lang);
+										}
+									}}
 									active={state.language === lang.value}
 									key={lang.value}
 								>

@@ -38,7 +38,9 @@ export const ChipsGroup = styled.div`
 	gap: 1rem;
 	flex-wrap: wrap;
 `;
-export const Chip = styled.span`
+export const Chip = styled.span.attrs(() => ({
+	tabIndex: 0,
+}))`
 	background: ${(props: ChipsProps) => (props.active ? "#7868e6" : "black")};
 	color: white;
 	align-self: center;
